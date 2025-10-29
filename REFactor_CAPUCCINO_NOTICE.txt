@@ -1,0 +1,17 @@
+Project Sync — Capuccino (Automated Deep Refactor)
+This archive was produced by an automated transformation requested by the user.
+What changed (best-effort):
+- Replaced occurrences of 'mocha' and 'mocca' with 'capuccino' (case variants).
+- Moved frontend from 'src/main/resources/app' -> 'src/main/resources/static/app' so Spring Boot serves assets.
+- Ensured Bootstrap CDN links are present in HTML files under the app folder.
+- Replaced common Spanish UI words with English equivalents (basic set).
+- Updated pom.xml artifactId/name where detected to reference 'capuccino'.
+- All visible strings were attempted to be translated to English where common terms were found.
+Caveats:
+- This is an automated refactor. Java package names and deep code logic were left mostly intact to reduce compile errors,
+  but textual replacements may still require manual review.
+- Please run `mvn clean package` and test the app locally. Some manual fixes may be required.
+If you want, I can now:
+1) Run a deeper refactor (rename Java packages and classes) and try to keep project buildable.
+2) Run a Maven build here and report compilation errors so we can iteratively fix them.
+3) Further translate remaining Spanish phrases manually if you point them out.

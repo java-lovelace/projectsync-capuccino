@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capuccino — Project Revamp</title>
+  <!-- TailwindCSS CDN for a basic, quick setup -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+  <header class="bg-indigo-600 text-white shadow">
+    <div class="container mx-auto px-4 py-4">
+      <h1 class="text-2xl font-semibold">Project Sync Capuccino</h1>
+      <p class="opacity-90">CRUD básico de projects (API /api/projects)</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-6">
+    <!-- Actions -->
+    <section class="mb-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <button id="btn-refresh" class="btn btn-primary">Recargar</button>
+          <span id="loading-indicator" class="hidden text-sm text-gray-500">Cargando...</span>
+        </div>
+        <div>
+          <button id="btn-new" class="btn btn-secondary">New project</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- List -->
+    <section class="bg-white rounded-lg shadow overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+          <tr>
+            <th class="th">ID</th>
+            <th class="th">Name</th>
+            <th class="th">Description</th>
+            <th class="th">Estado</th>
+            <th class="th">Responsable</th>
+            <th class="th w-40">Acciones</th>
+          </tr>
+          </thead>
+          <tbody id="projects-tbody" class="bg-white divide-y divide-gray-200">
+          <!-- rows go here -->
+          </tbody>
+        </table>
+      </div>
+      <div id="empty-state" class="p-6 hidden">
+        <p class="text-center text-gray-500">No hay projects todavía. Crea el primero.</p>
+      </div>
+    </section>
+
+    <!-- Form (Create/Update) -->
+    <section id="form-section" class="mt-8 hidden">
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 id="form-title" class="text-lg font-semibold mb-4">New project</h2>
+        <form id="project-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="hidden" id="project-id" />
+
+          <div>
+            <label for="name" class="label">Name</label>
+            <input id="name" type="text" class="input" placeholder="Name del project" required />
+          </div>
+
+          <div>
+            <label for="status" class="label">Estado</label>
+            <input id="status" type="text" class="input" placeholder="NEW | ACTIVE | INACTIVE | DONE" />
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="description" class="label">Description</label>
+            <textarea id="description" class="input" rows="3" placeholder="Description"></textarea>
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="responsible" class="label">Responsable</label>
+            <input id="responsible" type="text" class="input" placeholder="Persona responsable" />
+          </div>
+
+          <div class="md:col-span-2 flex items-center gap-3 pt-2">
+            <button type="submit" class="btn btn-primary" id="btn-submit">Save</button>
+            <button type="button" class="btn btn-ghost" id="btn-cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- App script -->
+  <script src="./script.js"></script>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
+</body>
+</html>
